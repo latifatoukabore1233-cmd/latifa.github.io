@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"> 
+<title>Admission</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Formulaire d’Admission</h1>
+<form>
+<b>Nom :</b> <input type="text">
+<b>Prénom </b> <input type="text">
+<b>Date de naissance </b>:
+<input type="date"><br><br>
+<b>Sexe</b> :<br><br>
+
+<div style="display: flex; align-items: center; gap: 10px;">
+  
+  <label for="homme"><b>Homme</b></label>
+  <input type="radio" name="sexe" id="homme"><br>
+</div>
+
+<div style="display: flex; align-items: center; gap: 10px;">
+  
+  <label for="femme"><b>Femme</b></label>
+  <input type="radio" name="sexe" id="femme">
+</div>
+<br><br>
+
+<b>Téléphone</b> :
+<input type="tel">
+<h1>Renseignements Academiques</h1>
+<b>Diplome actuel:</b> <input type="text">
+<b>Date:</b><input type="data">
+<b>Mention:</b>  <input type="text">
+ <b>Etablissement d'origine:</b> <input type="text"><br><br>
+ <a href="PROJET2_du_groupe_3.html" style="background-color:black">Quitter</a>
+ <input type="submit" value="Envoyer">
+</form>
+<div class="sidenav">
+</div>
+<style>
+body{
+  background-color: rgb(100, 78, 46);
+    font-family:Arial;
+}
+
+h1{
+  color:#000000e2;
+  text-align:center;
+}
+
+form{ 
+  background-color: rgb(100, 78, 46);
+  width:90%;
+  margin:auto;
+  padding:20px;
+  border-radius:12px;
+}
+
+input, select{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  margin-bottom:12px;
+  background-color:hsl(210, 19%, 94%);
+  border:1px solid #eaeef0eb;
+  border-radius:8px;
+}
+
+input[type="submit"]{
+  background-color:#f1f7f2fe;
+  color:rgba(0, 0, 0, 0.803);
+  border:none;
+  font-size:18px;
+}
+
+input[type="submit"]:hover{
+  background-color:rgb(33, 20, 3);
+}
+</style>
+</body>
+</html>

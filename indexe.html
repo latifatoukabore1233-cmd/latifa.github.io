@@ -1,0 +1,173 @@
+<!DOCTYPE html> 
+<html lang="fr"> 
+<head> 
+<meta charset="UTF-8"> 
+<title>PROJET 2 </title> 
+<link rel="stylesheet" href="tpFichier-style.css"> 
+<meta name="viewport" content="width=device-width, initial
+scale=1.0">
+<style>
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: a;
+  margin: auto;
+}
+
+.text {
+  color: #141c37;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.dot {
+  
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #000000;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 2.6s ease;
+}
+
+.active {
+  background-color:white;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 2.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 100px) {
+  .text {font-size: 101px}
+}
+.marquee {
+      background-color: rgba(164, 127, 74, 0.475);
+      overflow: hidden;
+    }
+ .marquee p {
+      white-space: nowrap;
+      font-size: 28px;
+      color: #0a0707;
+      padding: 2px;
+      animation: scroll 6s linear infinite;
+    }
+    @keyframes scroll {
+    100%{ transform: translateX(100%);} 
+      0%{ transform: translateX(-100%); 
+      }
+    }
+</style>
+</head>
+<body style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+<div class="content" style="margin-left: 625px"><img src="UNB_logo.jpg" alt="logo de UNB" width="100px" height="100px"></div>
+<div id="nav" style="margin-left:560px"> 
+  <div class="container">
+<ul  style="background-color: rgb(33, 20, 3);" > 
+<li><img src="logo ESI.jpg" alt="logo de ESI" width="100px" height="100px"></li> 
+<li><p style="border:20px solid ;border-radius: 20px ;border-color: rgba(164, 127, 74, 0.475);color: #dcd9d9;;"> Ecole Superieure d'Informatique</p></li> 
+</ul> 
+</div>
+</div>
+<div class="slideshow-container">
+<div class="mySlides fade">
+  <img src="Site du UNB.jpg " style="width: 1000px ;height: 550px;display: grid; place-items: center; height: 500px;border-radius: 600px; ">
+  <div class="text"><b><h1>Université NAZI BONI</h1></b></div>
+</div>
+
+<div class="mySlides fade" style="text-align: center;">
+  <img src="campus 22.jpg" style="width:1000px;height: 550px; text-align: center  ;display: grid; place-items: center; height: 500px;border-radius: 600px;">
+  <div class="text"><b><h1>CAMPUS 22</h1></b></div>
+</div>
+
+<div class="mySlides fade">
+  <img src="Journee dintegration.jpg" style="width: 1000px;height:550px;display: grid; place-items: center; height: 500px;border-radius: 600px;">
+  <div class="text"><b><h1>Ecole Superieur d'informatique</h1></b></div>
+</div>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+<script>
+let slideIndex = 0;
+showSlides();
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script> 
+</head> 
+<body> 
+<!-- Barre de Navigation Horizontale --> 
+<div id="nav" style="border: 20px solid ;border-radius: 20px;border-color:  rgb(33, 20, 3);"> 
+<ul  style="color: #f2f2f2;"> 
+<li><a href="PROJET2_du_groupe_3.html"  style="color: #f2f2f2;border-radius: 20px;" >Accueil</a></li> 
+<li><a href="Académique.html" style="color: #f2f2f2;border-radius: 20px;">Académique</a></li> 
+<li><a href="Admission.html"  style="color: #f2f2f2;border-radius: 20px;">Adimission</a></li> 
+<li><a href="Galerie.html"  style="color: #f2f2f2;border-radius: 20px;">Galerie</a></li> 
+</ul> 
+</div> 
+<!-- Contenu Principal avec div pour les news --> 
+<div class="new"> 
+<div class="content"> 
+<h2>Une petite introduction de "ESI"</h2> 
+<p>Ouverte à la rentrée 1990-1991 à Ouagadougou, l'Ecole Supérieure d'Informatique (ESI) est le premier établissement public d'enseignement supérieur en informatique du Burkina Faso. Dans un monde ou la technologie s'est implantée dans tous les activités humaines, l'ESI se charge de mettre à la disposition des étudiants la meilleure façon qui puisse exister afin de booster le BURKINA FASO au sommet du devéloppement et d'une révolution totale et réelle.L'ESI c'est bien plus qu'une école informatique. C'est un tremplin vers l'excelence. Ici on ne se contente pas d'apprendre à coder: on apprend à concevoir des solutions innovantes, à travailler en equipe comme dans le monde professionnel, et à devenir des ingenieurs complets, recherchés dès la sortie. Les débouchés sont nombreux (cybersécurité, data science, IA, développement...), le niveau est exigeant mais stimulant et l'ambiance entre étudiants est fraternelle et solidaire. Si vous voulez allier passion pour la technologie et avenir prometteur, l'ESI est le bon choix après le BAC.</p> 
+</div> 
+</div> 
+</div> 
+<div class="animation-name">
+  <dir class="content"><b><i>Les administrateurs de la page sont:</i></b>
+    <ul>
+      <li><b>GANOU Gnientowô Regina Margret</b></li>
+      <li><b>GUIBILA Noura</b></li>
+      <li><b>KABORE Latifatou</b></li>
+      <Li><b>SAGNON Mahinkié</b></Li>
+    </ul>
+  </dir>
+</div>
+ 
+     <div><img src="UNB_logo.jpg" alt="logo de UNB" width="100px" height="100px"></div>
+    <div id="footer" style="background-color:  rgb(33, 20, 3);"> 
+        <p style="background-color: #f2f2f2;">&copy; 2026 Ecole Supérieure d'Informatique Info|Promotion 2025-2026. Tous droits réservés.</p>
+          </div>
+          </div>
+          <div class="marquee" style="background-color:  rgb(33, 20, 3);">
+            <p style="color:  rgb(194, 192, 188);">Bienvenue dans l'univers de la programmation et du réseaux là ou les élites immergent."</p>
+          </div>
+
+</body> 
+</html> 

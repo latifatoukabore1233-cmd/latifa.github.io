@@ -1,0 +1,310 @@
+<html>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Georgia, serif;
+    background-color: #4e2015;
+  }
+
+  h2 {
+    text-align: center;
+    padding: 30px 0 20px;
+    font-size: 2em;
+    color: #4e1d08fb;
+    letter-spacing: 2px;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px 40px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .column {
+    flex: 0 0 calc(33.33% - 16px);
+    max-width: calc(33.33% - 16px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 900px) {
+    .column { flex: 0 0 calc(50% - 16px); max-width: calc(50% - 16px); }
+  }
+  @media (max-width: 500px) {
+    .column { flex: 0 0 100%; max-width: 100%; }
+  }
+
+  .column img,
+  .column video {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+    transition: 0.3s;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 60px;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgb(65, 39, 19);
+  }
+
+  .modal-content {
+    position: relative;
+    background-color: #ceb297e9;
+    margin: auto;
+    padding: 0;
+    width: 90%;
+    max-width: 1200px;
+  }
+
+  .close {
+    color: rgb(68, 45, 31);
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    z-index: 10;
+  }
+  .close:hover { color: #f2a0a0; cursor: pointer; }
+
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: rgb(234, 231, 231);
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .next { right: 0; border-radius: 3px 0 0 3px; }
+  .prev:hover, .next:hover { background-color: rgba(74, 12, 12, 0.8); }
+
+  .numbertext {
+    color: #141111;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+
+  img { margin-bottom: -4px; }
+
+  .caption-container {
+    text-align: center;
+    background-color: rgb(173, 156, 131);
+    padding: 2px 16px;
+    color: rgb(18, 10, 1);
+  }
+
+  .demo { opacity: 0.6; }
+  .active, .demo:hover { opacity: 1; }
+
+  .cursor { cursor: pointer; }
+
+  img.hover-shadow, video.hover-shadow { transition: 0.3s; }
+  .hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(58,33,7,0.925), 0 6px 20px 0 rgba(70, 40, 40, 0.906);
+    transform: scale(1.03);
+  }
+
+  .mySlides img,
+  .mySlides video {
+    width: 100%;
+    height: auto;
+    max-height: 75vh;
+    object-fit: contain;
+  }
+</style>
+
+<body>
+
+<h2><i>L'UNIVERS PHOTO DE ESI</i></h2>
+
+<!-- GRILLE -->
+<div class="row">
+  <div class="column">
+    <img src="Site du UNB.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow cursor" alt="Le site UNB">
+  </div>
+  <div class="column">
+    <img src="Raconte de debut dannee.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow cursor" alt="Raconte de debut dannee">
+  </div>
+  <div class="column">
+    <img src="Journee de salubrite.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow cursor" alt="Journee de salubrite">
+  </div>
+  <div class="column">
+    <img src="Salubrite paticipants.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow cursor" alt="Les participants de la journee de salubrite">
+  </div>
+  <div class="column">
+    <img src="Soutenance.jpg" onclick="openModal();currentSlide(5)" class="hover-shadow cursor" alt="Soutenance">
+  </div>
+  <div class="column">
+    <img src="Journee dintegration.jpg" onclick="openModal();currentSlide(6)" class="hover-shadow cursor" alt="Journee dintegration">
+  </div>
+  <div class="column">
+    <img src="Joueurs.jpg" onclick="openModal();currentSlide(7)" class="hover-shadow cursor" alt="Les joueurs de l'ESI">
+  </div>
+  <div class="column">
+    <img src="Hommage.jpg" onclick="openModal();currentSlide(8)" class="hover-shadow cursor" alt="Hommage au Docteur DANDJINOU">
+  </div>
+  <div class="column">
+    <video src="La salle des machines.mp4" onclick="openModal();currentSlide(9)" class="hover-shadow cursor" data-alt="La salle des machine">
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 9</div>
+      <img src="Site du UNB.jpg" style="width:100%" alt="Le site UNB">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">2 / 9</div>
+      <img src="Raconte de debut dannee.jpg" style="width:100%" alt="Raconte de debut dannee">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">3 / 9</div>
+      <img src="Journee de salubrite.jpg" style="width:100%" alt="Journee de salubrite">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">4 / 9</div>
+      <img src="Salubrite paticipants.jpg" style="width:100%" alt="Les participants de la journee de salubrite">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">5 / 9</div>
+      <img src="Soutenance.jpg" style="width:100%" alt="Soutenance">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">6 / 9</div>
+      <img src="Journee dintegration.jpg" style="width:100%" alt="Journee dintegration">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">7 / 9</div>
+      <img src="Joueurs.jpg" style="width:100%" alt="Les joueurs de l'ESI">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">8 / 9</div>
+      <img src="Hommage.jpg" style="width:100%" alt="Hommage au Docteur DANDJINOU">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">9 / 9</div>
+      <video src="La salle des machines.mp4" style="width:100%" controls data-alt="La salle des machines" ></video>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+    <!-- Miniatures -->
+    <div class="row" style="padding:10px; gap:6px; background:#4e0b0b;">
+      <div class="column" style="flex:0 0 calc(11.1% - 6px); max-width:calc(11.1% - 6px);">
+        <img class="demo cursor" src="Site du UNB.jpg" style="width:100%;height:60px;object-fit:cover;" onclick="currentSlide(1)" alt="Le site UNB">
+      </div>
+      <div class="column" style="flex:0 0 calc(11.1% - 6px); max-width:calc(11.1% - 6px);">
+        <img class="demo cursor" src="Raconte de debut dannee.jpg" style="width:100%;height:60px;object-fit:cover;" onclick="currentSlide(2)" alt="Raconte de debut dannee">
+      </div>
+      <div class="column" style="flex:0 0 calc(11.1% - 6px); max-width:calc(11.1% - 6px);">
+        <img class="demo cursor" src="Journee de salubrite.jpg" style="width:100%;height:60px;object-fit:cover;" onclick="currentSlide(3)" alt="Journee de salubrite">
+      </div>
+      <div class="column" style="flex:0 0 calc(11.1% - 6px); max-width:calc(11.1% - 6px);">
+        <img class="demo cursor" src="Salubrite paticipants.jpg" style="width:100%;height:60px;object-fit:cover;" onclick="currentSlide(4)" alt="Les participants de la journee de salubrite">
+      </div>
+      <div class="column" style="flex:0 0 calc(11.1% - 6px); max-width:calc(11.1% - 6px);">
+        <img class="demo cursor" src="Soutenance.jpg" style="width:100%;height:60px;object-fit:cover;" onclick="currentSlide(5)" alt="Soutenance">
+      </div>
+      <div class="column" style="flex:0 0 calc(11.1% - 6px); max-width:calc(11.1% - 6px);">
+        <img class="demo cursor" src="Journee dintegration.jpg" style="width:100%;height:60px;object-fit:cover;" onclick="currentSlide(6)" alt="Journee dintegration">
+      </div>
+      <div class="column" style="flex:0 0 calc(11.1% - 6px); max-width:calc(11.1% - 6px);">
+        <img class="demo cursor" src="Joueurs.jpg" style="width:100%;height:60px;object-fit:cover;" onclick="currentSlide(7)" alt="Les joueurs de l'ESI">
+      </div>
+      <div class="column" style="flex:0 0 calc(11.1% - 6px); max-width:calc(11.1% - 6px);">
+        <img class="demo cursor" src="Hommage.jpg" style="width:100%;height:60px;object-fit:cover;" onclick="currentSlide(8)" alt="Hommage au Docteur DANDJINOU">
+      </div>
+
+ <div class="column" style="flex:0 0 calc(11.1% - 6px); max-width:calc(11.1% - 6px); position:relative;">
+  <video class="demo cursor" data-alt="La salle des machines"
+         src="La salle des machines.mp4"
+         style="width:100%; height:60px; object-fit:cover; display:block;"
+         preload="metadata"
+         onloadedmetadata="this.currentTime=1">
+  </video>
+  <div onclick="currentSlide(9)"
+       style="position:absolute; top:0; left:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center; cursor:pointer;">
+    <span style="font-size:20px; color:rgb(13, 1, 1);">&#9654;</span>
+  </div>
+</div>
+
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById("myModal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+  }
+
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    var captionText = document.getElementById("caption");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+    captionText.innerHTML = dots[slideIndex - 1].alt|| dots [slideIndex-1].getAttribute("data-alt");
+  }
+</script>
+
+</body>
+</html>
